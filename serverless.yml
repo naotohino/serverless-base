@@ -68,6 +68,24 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
+package:
+  individually: true
+
+plugins:
+  - serverless-aws-documentation
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+  webpack:
+    includeModules: true # enable auto-packing of external modules
+
 functions:
   hello:
     handler: handler.hello
